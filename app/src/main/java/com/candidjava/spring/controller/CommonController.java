@@ -1,9 +1,12 @@
 package com.candidjava.spring.controller;
 
 
+import com.candidjava.spring.bean.Brands;
 import com.candidjava.spring.bean.Cities;
 
 import com.candidjava.spring.bean.Employee;
+import com.candidjava.spring.bean.Models;
+import com.candidjava.spring.bean.Product_category;
 import com.candidjava.spring.bean.States;
 import com.candidjava.spring.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,4 +69,39 @@ public class CommonController {
             return null;
         }
     }
+    
+    /*
+    Api name: Get all brands
+    Parameters: N/A
+	*/
+  @GetMapping(value="/brands", headers="Accept=application/json")
+  public List<Brands> getAllBrands() {
+      List<Brands>brands=userService.getBrands();
+      return brands;
+  }
+  
+  @GetMapping(value="/brands/{brand_id}/products/{product_id}/models", headers="Accept=application/json")
+  public List<Models> getAllModelsById(@PathVariable("brand_id") int brand_id,@PathVariable("product_id") int product_id) {
+      List<Models> models=userService.getModels(brand_id,product_id);
+      return models;
+  }
+  
+  @GetMapping(value="/models", headers="Accept=application/json")
+  public List<Models> getAllModels() {
+      List<Models> models=userService.getModels();
+      return models;
+  }
+  
+  @GetMapping(value="/brands/{brand_id}/products", headers="Accept=application/json")
+  public List<Product_category> getAllProductsCategoryById(@PathVariable("brand_id") int brand_id) {
+	  List<Product_category> product_category=userService.getProducts(brand_id);
+      return product_category;
+  }
+  
+  @GetMapping(value="/products", headers="Accept=application/json")
+  public List<Product_category> getProductCategory() {
+      List<Product_category> product_category=userService.getProducts();
+      return product_category;
+
+  }
 }

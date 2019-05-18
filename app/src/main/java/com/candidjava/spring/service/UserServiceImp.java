@@ -5,9 +5,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import com.candidjava.spring.bean.Brands;
 import com.candidjava.spring.bean.Cities;
 import com.candidjava.spring.bean.States;
+import com.candidjava.spring.repository.BrandsRepository;
 import com.candidjava.spring.repository.CityRepository;
+import com.candidjava.spring.repository.ModelsRepository;
+import com.candidjava.spring.repository.Product_categoryRepository;
 import com.candidjava.spring.repository.StateRepository;
 import com.candidjava.spring.utils.GlobalUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +20,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.candidjava.spring.bean.Employee;
+import com.candidjava.spring.bean.Models;
+import com.candidjava.spring.bean.Product_category;
 import com.candidjava.spring.repository.UserRepository;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -36,6 +42,15 @@ public class UserServiceImp implements UserService {
 
 	@Autowired
 	CityRepository cityRepository;
+	
+	@Autowired
+	ModelsRepository modelsRepository;
+	
+	@Autowired
+	BrandsRepository brandsRepository;
+	
+	@Autowired
+	Product_categoryRepository product_categoryRepository;
 
 	@Autowired
 	MongoTemplate mongoTemplate;
@@ -138,5 +153,38 @@ public class UserServiceImp implements UserService {
 	@Override
 	public List<Cities> getCities() {
 		return (List<Cities>) cityRepository.findAll();
+	}
+
+	@Override
+	public List<Brands> getBrands() {
+		// TODO Auto-generated method stub
+		return (List<Brands>) brandsRepository.findAll();
+	}
+
+	@Override
+	public List<Product_category> getProducts() {
+		// TODO Auto-generated method stub
+		return (List<Product_category>) product_categoryRepository.findAll();
+	}
+
+	@Override
+	public List<Models> getModels() {
+		// TODO Auto-generated method stub
+		return (List<Models>) modelsRepository.findAll();
+
+	}
+
+	@Override
+	public List<Product_category> getProducts(int brand_id) {
+		// TODO Auto-generated method stub
+		return (List<Product_category>) product_categoryRepository.findProducts(brand_id);
+	}
+
+	@Override
+	public List<Models> getModels(int brand_id,int product_id) {
+		// TODO Auto-generated method stub
+		System.out.println("Brand"+brand_id+"product"+product_id);
+		return (List<Models>) modelsRepository.findModels(brand_id,product_id);
+		//return null;
 	}
 }

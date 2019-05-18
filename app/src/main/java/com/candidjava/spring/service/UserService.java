@@ -2,8 +2,11 @@ package com.candidjava.spring.service;
 
 import java.util.List;
 
+import com.candidjava.spring.bean.Brands;
 import com.candidjava.spring.bean.Cities;
 import com.candidjava.spring.bean.Employee;
+import com.candidjava.spring.bean.Models;
+import com.candidjava.spring.bean.Product_category;
 import com.candidjava.spring.bean.States;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,4 +30,10 @@ public interface UserService {
 	public List<Employee> findByNameStartingWith(String regexp);
 	public List<Employee> findByNameEndingWith(String regexp);
 	public List<Employee> findByAgeBetween(int ageGT, int ageLT);
+	
+	public List<Brands> getBrands();
+	public List<Product_category> getProducts();
+	public List<Product_category> getProducts(int brand_id);
+	public List<Models> getModels();
+	public List<Models> getModels(int brand_id,int product_id);
 }
