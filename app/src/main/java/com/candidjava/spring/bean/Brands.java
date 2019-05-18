@@ -29,13 +29,6 @@ public class Brands {
 
 
 
-	public ObjectId getDatabaseId() {
-		return databaseId;
-	}
-
-	public void setDatabaseId(ObjectId databaseId) {
-		this.databaseId = databaseId;
-	}
 
 	public String getBrand() {
 		return brand;

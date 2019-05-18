@@ -21,21 +21,13 @@ public class Product_category {
     private String product_id;
     
     
-	public Product_category(ObjectId databaseId, String id, String product, String brand_id, String product_id) {
-		super();
-		this.databaseId = databaseId;
+	public Product_category(String id, String product, String brand_id, String product_id) {
 		this.id = id;
 		this.product = product;
 		this.brand_id = brand_id;
 		this.product_id = product_id;
 	}
 	
-	public ObjectId getDatabaseId() {
-		return databaseId;
-	}
-	public void setDatabaseId(ObjectId databaseId) {
-		this.databaseId = databaseId;
-	}
 	public String getId() {
 		return id;
 	}

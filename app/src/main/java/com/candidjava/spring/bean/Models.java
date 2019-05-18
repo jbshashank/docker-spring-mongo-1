@@ -22,9 +22,7 @@ public class Models {
     @Field("brand_id")
     private int brand_id;
     
-	public Models(ObjectId databaseId, String id, String model, int product_id, int model_id, int brand_id) {
-		super();
-		this.databaseId = databaseId;
+	public Models(String id, String model, int product_id, int model_id, int brand_id) {
 		this.id = id;
 		this.model = model;
 		this.product_id = product_id;
