@@ -10,7 +10,7 @@ import com.ayushya.spring.bean.Models;
 public interface ModelsRepository extends MongoRepository<Models, String> {
 
 	//@Query("{ $or: [{'brand_id': 1001,'product_id': 10001 }]}")
-	@Query("{'brand_id': ?0 ,'product_id': ?1 }")
+	@Query("{'brand_id': ?0 ,product_id: ?1 }")
 	List<Models> findModels(int brand_id, int product_id);
 
 }
