@@ -13,7 +13,7 @@ public class Models {
     @Id ObjectId databaseId;
     @Field("id")
     private String id;
-    @Field("state_id")
+    @Field("model")
     private String model;
     @Field("product_id")
     private int product_id;
