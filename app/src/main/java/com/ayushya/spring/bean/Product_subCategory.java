@@ -13,7 +13,7 @@ public class Product_subCategory
   ObjectId databaseId;
   @Field("id")
   private String id;
-  @Field("Product Sub Category")
+  @Field("product_sub_category")
   private String productSubCategory;
   @Field("product_id")
   private int product_id;
